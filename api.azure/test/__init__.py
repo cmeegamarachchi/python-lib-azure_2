@@ -1,5 +1,17 @@
+import json
 import azure.functions as func  # type: ignore
+
+import sys
+import os
+
+sys.path.append(os.path.join(os.path.dirname(__file__), '../../core.lib'))
+sys.path.append(os.path.join(os.getcwd(), '../../core.lib'))
+
+from utility import Utility
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
     name = req.params.get("name")
-    return func.HttpResponse(f"Hello {name}")
+    payload = {
+        "message": Utility.generate_greeting(name)
+    }
+    return func.HttpResponse(json.dumps(payload), mimetype="application/json")
