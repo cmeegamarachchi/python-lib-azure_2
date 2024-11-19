@@ -4,8 +4,8 @@ import azure.functions as func  # type: ignore
 import sys
 import os
 
-sys.path.append(os.path.join(os.path.dirname(__file__), '../../core.lib'))
-sys.path.append(os.path.join(os.getcwd(), '../../core.lib'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '../../core_lib'))
+sys.path.append(os.path.join(os.getcwd(), '../../core_lib'))
 
 from utility import Utility
 
